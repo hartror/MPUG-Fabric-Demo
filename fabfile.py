@@ -16,6 +16,8 @@ def deploy():
         run('tar xof mpug_demo.tgz')
     run('rm /opt/django/mpug_demo -rf')
     run('mv /tmp/mpug_demo /opt/django/mpug_demo')
+    with cd('/opt/django/mpug_demo/mpug_demo/'):
+        run('mv live_settings.py settings.py')
     run('rm /tmp/mpug_demo.tgz')
 
 def stop_fastcgi():
